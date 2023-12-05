@@ -10,6 +10,7 @@ void FeedLine(string id, string line)
     var wasNew = alreadySeen.Add(id);
     if (!wasNew)
         return;
+    // there is no actual need to add to this list, it can be directly written to output stream to use zero memory
     allDocs.Add(line);
 }
 
