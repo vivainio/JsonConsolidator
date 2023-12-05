@@ -15,7 +15,6 @@ void FeedLine(string id, string line)
 
 IEnumerable<string> ReadFile(string gzippedFilePath)
 {
-    // Find indices of newline characters
     using (FileStream fileStream = new FileStream(gzippedFilePath, FileMode.Open, FileAccess.Read))
     using (GZipStream gzipStream = new GZipStream(fileStream, CompressionMode.Decompress))
     using (StreamReader reader = new StreamReader(gzipStream))
