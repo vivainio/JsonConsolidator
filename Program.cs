@@ -1,4 +1,5 @@
-﻿using System.IO.Compression;
+﻿using System.Diagnostics;
+using System.IO.Compression;
 using System.Text.Json;
 
 var allDocs = new List<string>();
@@ -39,9 +40,11 @@ void FeedFile(string fname) {
 
 for (var i=0; i < 100; i++)
 {
-    Console.WriteLine(i);
+    var sw = Stopwatch.StartNew();
     // repeating the same file, only the first run adds ids. The rest are skipped
     FeedFile("/r/JsonConsolidator/docs/1.json.gz");
+    Console.WriteLine(sw.ElapsedMilliseconds + "ms");
+    
 }
 
 Console.WriteLine($"Lines: {allDocs.Count}");
